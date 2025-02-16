@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 1.5px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #34495e;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            width: 80%;
+            max-width: 1000px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .chart-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .chart-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .chart-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .chart-container {
+                width: 100%;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Charts Display</h1>
+
+    <!-- Bar Chart -->
+    <div class="chart-container">
+        <h2>Product Quantity Sold (Bar Chart)</h2>
+        <img src="data:image/png;base64,{{ bar_plot_url }}" alt="Bar Chart">
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="chart-container">
+        <h2>Product Type Sales Distribution (Pie Chart)</h2>
+        <img src="data:image/png;base64,{{ pie_plot_url }}" alt="Pie Chart">
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Charts Display | <a href="#">Learn More</a></p>
+    </div>
+
+    
+
+</body>
+</html>

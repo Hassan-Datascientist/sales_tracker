@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    
+    <!-- Internal CSS -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .form-container{
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Input Styles */
+        input[type="text"], 
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        
+        /* Button Styles */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Error Message Style */
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        /* Navigation Button Styles */
+        .nav-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            margin: 10px;
+        }
+        .nav-buttons a:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 850px){
+            body{
+                text-align: center;
+                font-size: 1.3rem;
+            }
+            .form-container{
+                font-size: 2rem;
+                width: 100%;
+                max-width: 80%;
+                min-height: 50%;
+            }
+            #form{
+                margin: 50px auto;
+                width: 100%;
+
+            }
+            #form input, #form button{
+                padding: 10px;
+                margin: 20px auto;
+                font-size: 30px;
+                width: 90%;
+            }
+            #form button{
+                font-size: 1.6rem;
+                width: 93%;
+            }
+            @media (min-width: 850px){
+                body{
+                    text-align: center;
+                    font-size: 1.3rem;
+                }
+                .form-container{
+                    font-size: 2rem;
+                    width: 100%;
+                    max-width: 80%;
+                    min-height: 50%;
+                }
+                #form{
+                    margin: 50px auto;
+                    width: 100%;
+    
+                }
+                #form input, #form button{
+                    padding: 10px;
+                    margin: 20px auto;
+                    font-size: 30px;
+                    width: 90%;
+                }
+                #form button{
+                    font-size: 1.6rem;
+                    width: 93%;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form id="form" method="POST" action="/login" onsubmit="return validateForm()">
+            <input 
+                type="stringformat" 
+                name="username" 
+                placeholder="Username(12 letters only)" 
+                required 
+                minlength="3" 
+                maxlength="20" 
+                pattern="[a-zA-Z0-9_]+"
+                title="Username must contain only alphabetic characters.">
+            <br>
+            <input 
+                type="password" 
+                name="password" 
+                placeholder="Password" 
+                required 
+                minlength="8"
+                title="Password must be at least 8 characters long.">
+            <br>
+            <button type="submit">Login</button>
+        </form>
+        <script>
+            function validateForm() {
+                const username = document.querySelector('input[name="username"]').value;
+                
+                // Regular expression to allow only letters
+                const usernamePattern = /^[a-zA-Z]+$/;
+        
+                // Check if the username matches the pattern
+                if (!usernamePattern.test(username)) {
+                    alert('Username must contain only alphabetic characters.');
+                    return false; // Prevent form submission
+                }
+        
+                return true; // Allow form submission
+            }
+        </script>
+
+        <!-- Navigation Buttons -->
+
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Reports</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+            color: #333;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 1.8em;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        /* Table Container */
+        .table-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        td {
+            background-color: #ecf0f1;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover td {
+            background-color: #d1e7fd;
+        }
+
+        /* Table Hover Effects */
+        th:hover {
+            background-color: #3498db;
+        }
+
+        td:hover {
+            background-color: #a9cce3;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .table-container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            h2, h3 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        /* Button for Interactions */
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            padding: 12px 25px;
+            background-color: #27ae60;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h2>Sales Reports</h2>
+        <h3>Product Report by Sales Status</h3>
+        <table>
+            <tr>
+                <th>Sales Status</th>
+                <th>Total Quantity Sold</th>
+                <th>Total Revenue</th>
+                <th>Total Profit</th>
+            </tr>
+            {% for entry in report %}
+            <tr>
+                <td>{{ entry._id }}</td>
+                <td>{{ entry.total_quantity_sold }}</td>
+                <td>{{ entry.total_revenue | round(2) }}</td>
+                <td>{{ entry.total_profit | round(2) }}</td>
+            </tr>
+            
+            {% endfor %}
+        </table>
+        <div class="button-container">
+            <a href="#">Download Report</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2024 Sales Reports. All rights reserved.</p>
+    </div>
+</body>
+</html>
